@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
 
-const prisma = new PrismaClient();
+
 
 export default async function ProjectsPage() {
   const projects = await prisma.project.findMany({

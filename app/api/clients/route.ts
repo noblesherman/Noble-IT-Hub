@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-const prisma = new PrismaClient();
 /**
  * @swagger
  * /api/clients:

@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-const prisma = new PrismaClient();
-
-// Generate past 30 days uptime data
 export async function GET() {
   try {
     const incidents = await prisma.incident.findMany({
