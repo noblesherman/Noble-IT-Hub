@@ -2,9 +2,22 @@
 
 import { useState, useEffect } from "react";
 
+interface Client {
+  id: string;
+  name: string;
+}
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  link?: string;
+  clientId: string;
+}
+
 export default function ProjectsPage() {
-  const [projects, setProjects] = useState([]);
-  const [clients, setClients] = useState([]);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [clients, setClients] = useState<Client[]>([]);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -23,7 +36,7 @@ export default function ProjectsPage() {
     setClients(data);
   }
 
-  async function addProject(e) {
+  async function addProject(e: React.FormEvent) {
     e.preventDefault();
 
     if (!clientId) {

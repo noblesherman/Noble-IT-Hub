@@ -179,9 +179,9 @@ function ClientStep({ client, setClient, next, msg }: any) {
   return (
     <>
       <h2 className="text-2xl font-semibold">Client Details</h2>
-      <Input label="Business Name" value={client.name} onChange={(v) => setClient({ ...client, name: v })} />
-      <Input label="Website" placeholder="domain.com" value={client.website} onChange={(v) => setClient({ ...client, website: v })} />
-      <Input label="Logo URL" value={client.logoUrl} onChange={(v) => setClient({ ...client, logoUrl: v })} />
+      <Input label="Business Name" value={client.name} onChange={(v: string) => setClient({ ...client, name: v })} />
+      <Input label="Website" placeholder="domain.com" value={client.website} onChange={(v: string) => setClient({ ...client, website: v })} />
+      <Input label="Logo URL" value={client.logoUrl} onChange={(v: string) => setClient({ ...client, logoUrl: v })} />
       {msg && <p className="text-red-600 text-sm">{msg}</p>}
       <NavNext onClick={next} />
     </>
@@ -196,9 +196,9 @@ function ProjectStep({ includeProject, setIncludeProject, project, setProject, b
 
       {includeProject && (
         <>
-          <Input label="Project Title" value={project.title} onChange={(v) => setProject({ ...project, title: v })} />
-          <Input label="Description" value={project.description} onChange={(v) => setProject({ ...project, description: v })} />
-          <Input label="Project URL" value={project.link} onChange={(v) => setProject({ ...project, link: v })} />
+          <Input label="Project Title" value={project.title} onChange={(v: string) => setProject({ ...project, title: v })} />
+          <Input label="Description" value={project.description} onChange={(v: string) => setProject({ ...project, description: v })} />
+          <Input label="Project URL" value={project.link} onChange={(v: string) => setProject({ ...project, link: v })} />
         </>
       )}
 
@@ -227,8 +227,8 @@ function AutomationStep(props: any) {
 
       {includeIncident && (
         <>
-          <Input label="Incident Title" value={incident.title} onChange={(v) => setIncident({ ...incident, title: v })} />
-          <Input label="Incident Description" value={incident.description} onChange={(v) => setIncident({ ...incident, description: v })} />
+          <Input label="Incident Title" value={incident.title} onChange={(v: string) => setIncident({ ...incident, title: v })} />
+          <Input label="Incident Description" value={incident.description} onChange={(v: string) => setIncident({ ...incident, description: v })} />
         </>
       )}
 

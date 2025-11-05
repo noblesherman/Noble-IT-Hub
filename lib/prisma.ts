@@ -1,15 +1,19 @@
-import { PrismaClient } from "@prisma/client";
+// Temporary stub while database is disabled.
+// Prevents build errors when @prisma/client is not installed.
+// If any code touches prisma at runtime, it will throw.
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
-};
+type PrismaStub = { [key: string]: any };
 
-export const prisma =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    log: ["error", "warn"]
-  });
+const prismaProxy: PrismaStub = new Proxy(
+  {},
+  {
+    get() {
+      throw new Error(
+        "Database disabled for this build. Remove DB calls or re-enable Prisma."
+      );
+    }
+  }
+);
 
-if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
-}
+export const prisma = prismaProxy as any;
+export default prisma;

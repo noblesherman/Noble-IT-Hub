@@ -1,7 +1,8 @@
 "use client";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
-export function UptimeChart({ data }) {
+interface UptimeChartData { date: string; value: number; }
+export function UptimeChart({ data }: { data: UptimeChartData[] }) {
   return (
     <div className="rounded-3xl p-6 bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg">
       <h2 className="text-lg font-medium text-neutral-700 mb-4">Uptime</h2>
@@ -17,7 +18,8 @@ export function UptimeChart({ data }) {
   );
 }
 
-export function IncidentBarChart({ data }) {
+interface IncidentBarChartData { date: string; count: number; }
+export function IncidentBarChart({ data }: { data: IncidentBarChartData[] }) {
   return (
     <div className="rounded-3xl p-6 bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg">
       <h2 className="text-lg font-medium text-neutral-700 mb-4">Incident Frequency</h2>
@@ -33,7 +35,8 @@ export function IncidentBarChart({ data }) {
   );
 }
 
-export function ClientTrafficChart({ data }) {
+interface ClientTrafficChartData { day: string; visits: number; }
+export function ClientTrafficChart({ data }: { data: ClientTrafficChartData[] }) {
   return (
     <div className="rounded-3xl p-6 bg-white/60 backdrop-blur-xl border border-white/40 shadow-lg">
       <h2 className="text-lg font-medium text-neutral-700 mb-4">Client Traffic</h2>

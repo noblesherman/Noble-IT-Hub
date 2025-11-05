@@ -166,7 +166,7 @@ transition={{
 }
 
 function DockLinks() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [mouseX, setMouseX] = useState<number | null>(null);
 
   useEffect(() => {
@@ -203,7 +203,7 @@ function DockItem({
   label: string;
   href: string;
   mouseX: number | null;
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [scale, setScale] = useState(1);

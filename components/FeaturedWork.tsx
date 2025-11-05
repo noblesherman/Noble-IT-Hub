@@ -33,7 +33,7 @@ export default function FeaturedWork() {
   const rotateX = useTransform(sTiltY, [-0.5, 0.5], [10, -10]);
   const rotateY = useTransform(sTiltX, [-0.5, 0.5], [-10, 10]);
 
-  function handle(e: React.MouseEvent<HTMLDivElement>) {
+  function handle(e: React.MouseEvent<HTMLAnchorElement>) {
     const rect = e.currentTarget.getBoundingClientRect();
     tiltX.set((e.clientX - rect.left) / rect.width - 0.5);
     tiltY.set((e.clientY - rect.top) / rect.height - 0.5);
