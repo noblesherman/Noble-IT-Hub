@@ -3,14 +3,16 @@ import { prisma } from "@/lib/prisma";
 
 export async function PATCH(
   req: Request,
-  context: { params?: any }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const params = context.params || {};
     const incidentId = parseInt(params.id, 10);
 
     if (isNaN(incidentId)) {
-      return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid ID" },
+        { status: 400 }
+      );
     }
 
     const updated = await prisma.incident.update({
