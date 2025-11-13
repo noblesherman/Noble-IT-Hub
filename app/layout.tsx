@@ -1,11 +1,16 @@
-export const metadata = {
-  title: "Noble Web Designs",
-  description: "Sites with motion, strategy, clarity.",
-}
-
+import type { Metadata } from "next"
 import "./globals.css"
 
-export default function RootLayout({ children }) {
+export const metadata: Metadata = {
+  title: "Noble IT Hub",
+  description: "Portfolio",
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <body>{children}</body>
