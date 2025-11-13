@@ -160,14 +160,14 @@ function CursorGlow() {
       height: "240px",
       borderRadius: "50%",
       pointerEvents: "none",
-      zIndex: 0,
+      zIndex: "0",
       filter: "blur(60px)",
       background: `radial-gradient(circle, ${APPLE_BLUE}33 0%, transparent 60%)`,
       left: "-1000px",
       top: "-1000px",
       mixBlendMode: "multiply",
       transition: "opacity .2s",
-    } as CSSStyleDeclaration)
+    } as Partial<CSSStyleDeclaration>)
     document.body.appendChild(blob)
 
     let x = 0,
@@ -497,7 +497,14 @@ export default function ServicesPage() {
                       <div className="text-xs text-neutral-500">Case study</div>
                     </div>
                   </div>
-                  <Link href={c.url} target="_blank" className="text-[15px] text-[#0A84FF] hover:underline">Visit →</Link>
+                  <a
+                    href={c.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="text-[15px] text-[#0A84FF] hover:underline"
+                  >
+                    Visit →
+                  </a>
                 </div>
               </div>
             ))}

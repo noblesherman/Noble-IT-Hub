@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useRef, useState } from "react"
+import type { Route } from "next"
 import Link from "next/link"
 import { motion, useScroll, useTransform, useInView, animate, useMotionValue, useSpring } from "framer-motion"
 import Lenis from "@studio-freight/lenis"
@@ -286,9 +287,7 @@ function Particles({ count = 200 }: { count?: number }) {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={positions.length / 3}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
       <pointsMaterial size={0.02} color="#9CA3AF" sizeAttenuation />
@@ -442,7 +441,7 @@ function NavBar() {
             Contact
           </Link>
           <Link
-            href="contact"
+            href="/contact"
             data-hover
             className="hidden rounded-full bg-[#111827] px-3 py-1.5 text-[11px] font-medium text-white md:inline-flex"
           >
@@ -456,7 +455,7 @@ function NavBar() {
 
 /* ============================= HERO =============================== */
 
-function MagnetButton({ href, children }: { href: string; children: React.ReactNode }) {
+function MagnetButton({ href, children }: { href: Route; children: React.ReactNode }) {
   const ref = useRef<HTMLAnchorElement | null>(null)
 
   useEffect(() => {
@@ -1019,15 +1018,16 @@ function WorkCard({ item, idx }: { item: CaseItem; idx: number }) {
               {item.d}
             </div>
           </div>
-          <Link
+          <a
             href={item.url}
             target="_blank"
+            rel="noreferrer noopener"
             data-hover
             className="inline-flex shrink-0 items-center gap-1 rounded-xl border border-[#D4DAFF] bg-[#EEF0FF] px-3 py-1.5 text-[11px] font-medium text-[#1F2A7F] hover:bg-[#E0E3FF]"
           >
             Visit
             <ArrowUpRight className="h-3.5 w-3.5" />
-          </Link>
+          </a>
         </div>
       </div>
 

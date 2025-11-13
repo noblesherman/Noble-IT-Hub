@@ -225,7 +225,7 @@ function DockItem({
       transition={{ type: "spring", stiffness: 320, damping: 22 }}
       className="relative"
     >
-      <Link
+      <a
         ref={ref}
         href={href}
         className="
@@ -243,7 +243,7 @@ function DockItem({
             rounded-full
           "
         />
-      </Link>
+      </a>
     </motion.div>
   );
 }
