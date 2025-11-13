@@ -9,8 +9,13 @@ const LINES = [
   "We ship fast and keep things sharp."
 ]
 
-function Line({ text, i }) {
-  const ref = useRef(null)
+type LineProps = {
+  text: string
+  i: number
+}
+
+function Line({ text, i }: LineProps) {
+  const ref = useRef<HTMLParagraphElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.3 })
 
   return (
@@ -18,11 +23,13 @@ function Line({ text, i }) {
       ref={ref}
       className="text-3xl md:text-[42px] leading-tight tracking-tight transition-transform"
       onMouseMove={(e) => {
+        if (!ref.current) return
         const r = ref.current.getBoundingClientRect()
         const x = ((e.clientX - r.left) / r.width - 0.5) * 8
         ref.current.style.transform = `skewY(${x}deg)`
       }}
       onMouseLeave={() => {
+        if (!ref.current) return
         ref.current.style.transform = "skewY(0deg)"
       }}
     >
