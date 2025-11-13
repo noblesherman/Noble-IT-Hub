@@ -1,0 +1,110 @@
+/* Site header */
+
+:root {
+  --nav-pad:  1rem;
+  --logo:     2.25rem;
+}
+@media (min-width: 768px) {
+  :root {
+    --nav-pad:  2rem;
+    --logo:     2.5rem;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --logo:     2.75rem;
+  }
+}
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+  top: 0; left: 0; right: 0;
+  padding: var(--nav-pad);
+  pointer-events: none;
+}
+.ghostnav {
+  height: var(--logo);
+  position: absolute;
+  top: 0; left: 0; right: 0;
+}
+
+.site-header > a, .site-header > label {
+  pointer-events: auto;
+}
+
+
+/* Logo */
+
+.logo {
+  display: inline-block;
+  height: var(--logo);
+}
+a.site-logo {
+  transition: none;
+  flex: none;
+}
+.site-logo:active {
+  opacity: .75;
+  transform: translateY(1px);
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* Tag */
+
+.site-tag {
+  width: 100%;
+  font-size: clamp(10px, 3vw, .8125rem);
+  letter-spacing: -0.015em;
+  line-height: 1.75;
+  pointer-events: none;
+}
+.js .site-tag {
+  overflow: hidden;
+}
+
+
+/* Nav button */
+
+.nav-btn {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  flex: none;
+  display: inline-block;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  margin: -1.25rem -1rem -1rem 0;
+}
+.nav-btn:focus, .nav-btn:active {
+  background-color: rgba(0,0,0,.1);
+}
+.nav-btn > span {
+  display: block;
+  position: absolute;
+  width: 2rem;
+  height: 3px;
+  border-radius: 1px;
+  background-color: currentColor;
+  transition: all .2s ease-in-out, background-color 0s;
+}
+.nav-btn > span:nth-child(1) { left: 1rem; top: 1.25rem; transform-origin: top left; }
+.nav-btn > span:nth-child(2) { left: 1rem; top: calc(50% - 1px); }
+.nav-btn > span:nth-child(3) { right: 1rem; bottom: 1.25rem; transform-origin: bottom right; }
+
+.nav-btn:hover > span:nth-child(1) { width: 1.5rem; }
+.nav-btn:hover > span:nth-child(3) { width: 1.5rem; }
+
+input[type="checkbox"].nav-check:checked ~ .site-header .nav-btn > span:nth-child(1) { transform: rotate(45deg); left: calc(1.25rem + 1.5px); width: 1rem; }
+input[type="checkbox"].nav-check:checked ~ .site-header .nav-btn > span:nth-child(2) { transform: rotate(-45deg); }
+input[type="checkbox"].nav-check:checked ~ .site-header .nav-btn > span:nth-child(3) { transform: rotate(45deg); right: calc(1.25rem + 1.5px); bottom: calc(1.25rem - 1.5px);  width: 1rem; }
+
+
+
+.main-nav {
+  opacity: 0;
+}

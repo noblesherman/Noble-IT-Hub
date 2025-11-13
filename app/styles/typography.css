@@ -1,0 +1,162 @@
+/* Define custom fonts */
+
+@font-face {
+  font-family: 'Cera';
+  src: url('../fonts/cerabasic-black-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cera';
+  src: url('../fonts/cerabasic-regular-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Fonts */
+
+:root {
+  --sans:       'Cera', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --regular:    400;
+  --bold:       700;
+}
+
+* {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+html {
+  font-family: var(--sans);
+  font-weight: var(--regular);
+  font-size: 17px;
+  overflow-x: hidden;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+@media (min-width: 992px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1200px) {
+  html {
+    font-size: 19px;
+  }
+}
+@media (min-width: 1560px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1800px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+
+/* Typography */
+
+:root {
+  --h1:     1.875rem;
+  --h2:     1.5rem;
+  --h3:     1.25rem;
+  --h4:     1.125rem;
+  --h5:     .875rem;
+  --h6:     .8125rem;
+  --large:  2.5rem;
+  --huge:   3rem;
+}
+@media (min-width: 768px) {
+  :root {
+    --h1:     3rem;
+    --h2:     1.75rem;
+    --large:  3.5rem;
+    --huge:   4rem;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --large:  4rem;
+    --huge:   4.75rem;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --h2:     2rem;
+    --large:  4.5rem;
+    --huge:   5.5rem;
+  }
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  font-weight: var(--bold);
+}
+h1      { margin-top: .375em; margin-bottom: .25em; }
+h2      { margin-top: .75em; margin-bottom: .375em;}
+h3      { margin-top: 1em; margin-bottom: .5em; }
+h1, .h1 { font-size: var(--h1); letter-spacing: -.01em; line-height: 1.05;  }
+h2, .h2 { font-size: var(--h2); letter-spacing: -.01em; line-height: 1.1;  }
+h3, .h3 { font-size: var(--h3); letter-spacing: -.01em; line-height: 1.2; }
+.large  { font-size: var(--large); letter-spacing: -.01em; line-height: 1; }
+.huge   { font-size: var(--huge); letter-spacing: -.01em; line-height: .9; }
+
+h4, h5, h6 {
+  font-weight: inherit;
+  margin-bottom: 1em;
+  margin-top: .5em;
+}
+h4, .h4 { font-size: 1rem }
+h5, .h5 { font-size: .875rem }
+h6, .h6 { font-size: clamp(11px, .75rem, 14px) }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+.bold               { font-weight: 700 }
+.regular            { font-weight: 400 }
+.italic             { font-style: italic }
+.caps               { text-transform: uppercase; }
+
+.line-height-1      { line-height: 1 }.line-height-2 { line-height: 1.25 }.line-height-3 { line-height: 1.5 }.line-height-4 { line-height: 2 }
+.letter-spacing-25  { letter-spacing: .025em }.letter-spacing-50  { letter-spacing: .05em }.letter-spacing-100 { letter-spacing: .1em }
+.letter-spacing-n25 { letter-spacing: -.025em }.letter-spacing-n50 { letter-spacing: -.05em }.letter-spacing-n100{ letter-spacing: -.1em }
+
+
+/* Globals */
+
+a {
+  color: var(--blue);
+  text-decoration: underline;
+  transition: color 200ms;
+}
+a:hover {
+  color: var(--black);
+  text-decoration: underline;
+}
+.bg-blue a, .bg-red a {
+  color: var(--white);
+}
+.bg-blue a:hover, .bg-red a:hover {
+  color: var(--black);
+}
+.bg-black a {
+  color: var(--white);
+}
+.bg-black a:hover {
+  color: var(--blue);
+}
+
+::-moz-selection {
+  color: var(--white);
+  background: var(--black);
+}
+::selection {
+  color: var(--white);
+  background: var(--black);
+}

@@ -1,0 +1,44 @@
+/* Footer team heads */
+
+footer {
+  overflow: hidden;
+}
+
+.team-bye li {
+  width: 16% !important;
+  max-width: 4.75rem !important;
+}
+.js .team-bye li {
+  opacity: .001;
+}
+.team-bye li:nth-child(2) {
+  margin-top: 4rem;
+}
+.team-bye li:nth-child(1) {
+  margin-top: 1rem;
+}
+@media(min-width: 768px) {
+  .team-bye li:nth-child(3) {
+    margin-top: -1rem;
+  }
+}
+
+.team-bye li:nth-child(1) img.point {
+  position: absolute;
+  right: -75%; top: 20%;
+  width: 70%;
+}
+.team-bye li:nth-child(2) img.hand {
+  position: absolute;
+  right: 100%; top: 35%;
+  width: 70%;
+}
+.team-bye li:nth-child(3) img.point {
+  position: absolute;
+  left: -80%; top: 30%;
+  width: 70%;
+}
+
+.js .team-bye [data-speech].speech {
+  z-index: 3;
+}

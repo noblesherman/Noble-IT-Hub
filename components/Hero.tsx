@@ -1,86 +1,75 @@
-"use client";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { useRef } from "react";
+/* components/Hero.tsx */
+"use client"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
+
+const APPLE_BLUE = "#0A84FF"
 
 export default function Hero() {
-  const tiltX = useMotionValue(0);
-  const tiltY = useMotionValue(0);
-  const sTiltX = useSpring(tiltX, { stiffness: 200, damping: 20 });
-  const sTiltY = useSpring(tiltY, { stiffness: 200, damping: 20 });
-
-  const rotateX = useTransform(sTiltY, [-0.5, 0.5], [8, -8]);
-  const rotateY = useTransform(sTiltX, [-0.5, 0.5], [-8, 8]);
-
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  function onMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const rect = cardRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    tiltX.set((e.clientX - rect.left) / rect.width - 0.5);
-    tiltY.set((e.clientY - rect.top) / rect.height - 0.5);
-  }
-
-  function resetTilt() {
-    tiltX.set(0);
-    tiltY.set(0);
-  }
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-neutral-100 border-b border-neutral-200">
-  <div className="mx-auto max-w-7xl px-6 lg:px-12 py-24 lg:py-28 grid lg:grid-cols-2 gap-16 items-center">
-    
-    {/* LEFT SIDE */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="space-y-6"
-    >
-      <p className="uppercase tracking-[0.12em] text-neutral-500 text-sm font-medium">
-        Noble’s Web Designs
-      </p>
+    <>
+      {/* full-viewport hero */}
+      <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center text-7xl font-extrabold leading-[1.05] tracking-tight px-6"
+        >
+          Websites that feel effortless,
+          <br className="hidden sm:block" />
+          <span style={{ color: APPLE_BLUE }}>convert like crazy</span>
+        </motion.h1>
 
-      <h1 className="text-5xl md:text-6xl font-semibold leading-tight text-neutral-900">
-        Websites that grow your business
-        <br />
-        <span className="text-blue-600">without growing your stress.</span>
-      </h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.7 }}
+          className="mt-7 text-lg sm:text-xl text-neutral-600 text-center max-w-2xl px-6"
+        >
+          Clean UI. Fast load. Zero nonsense. Design that earns money, not just applause.
+        </motion.p>
 
-      <p className="max-w-xl text-[17px] leading-7 text-neutral-600">
-        Clean design, fast performance, reliable tech. Built with Next.js and ruthless attention to detail.
-      </p>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.7 }}
+          className="mt-12 flex flex-col sm:flex-row items-center gap-4"
+        >
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 rounded-2xl bg-neutral-900 px-8 py-4 text-white font-medium"
+          >
+            Book Strategy Call
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
+          </Link>
+          <a
+            href="#packages"
+            className="inline-flex items-center gap-2 rounded-2xl border border-neutral-300 bg-white px-8 py-4 font-medium hover:bg-neutral-50"
+          >
+            See Pricing
+          </a>
+        </motion.div>
 
-      <div className="flex gap-3 pt-2">
-        <Link className="btn-primary" href="/projects">View Projects</Link>
-        <Link className="btn-outline" href="/contact">Book Free Strategy Call</Link>
-      </div>
-    </motion.div>
+        {/* shimmer orb */}
+        <motion.div
+          className="absolute w-[60vw] h-[60vw] sm:w-[40vw] sm:h-[40vw] rounded-full blur-3xl opacity-30"
+          animate={{ x: ["-10%", "20%", "-10%"], y: ["10%", "-10%", "10%"] }}
+          transition={{ duration: 18, repeat: Infinity }}
+          style={{ background: `radial-gradient(circle, ${APPLE_BLUE}33 0%, transparent 70%)` }}
+        />
 
-    {/* RIGHT SIDE */}
-    <motion.div
-      ref={cardRef}
-      onMouseMove={onMouseMove}
-      onMouseLeave={resetTilt}
-      style={{ rotateX, rotateY }}
-      className="relative w-full max-w-sm mx-auto"
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-    >
-      <div className="absolute inset-0 rounded-[50px] bg-white shadow-2xl blur-xl opacity-70" />
-      <Image
-        src="/me.jpeg"
-        width={800}
-        height={900}
-        alt="Noble Sherman"
-        className="relative rounded-[50px] shadow-xl object-cover"
-        priority
-      />
-    </motion.div>
-
-  </div>
-</section>
-  );
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.9 }}
+          transition={{ delay: 1.5, duration: 0.6 }}
+          className="absolute bottom-10 text-sm text-neutral-500"
+        >
+          Scroll to explore ↓
+        </motion.div>
+      </section>
+      {/* Hero flows directly into showcase – no divider bar */}
+    </>
+  )
 }

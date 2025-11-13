@@ -1,0 +1,99 @@
+/* Team heads */
+
+.team-heads {
+  list-style: none;
+  padding-left: 0;
+}
+.team-heads li {
+  width: 6.5rem;
+  position: relative;
+  box-sizing: content-box;
+}
+.team-heads li picture img {
+  vertical-align: top;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+}
+.team-heads li picture:nth-child(2) img, .team-heads li picture:nth-child(3) img {
+  position: absolute;
+  top: -1px; left: 0;
+}
+.team-heads li picture:nth-child(3) {
+  top: -2px;
+}
+.team-heads li > span {
+  display: block;
+  position: relative;
+}
+
+/* Team heads speech */
+
+.js [data-speech] {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.js [data-speech]:after {
+  opacity: 0;
+  pointer-events: none;
+  content: attr(data-speech);
+  display: inline;
+  position: absolute;
+  right: -75%;
+  top: -1rem;
+  font-size: 12px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.2)
+}
+.js .bg-white [data-speech]:after, .js .bg-gray [data-speech]:after {
+  color: var(--black) !important;
+  text-shadow: -1px -1px 0 white, 1px 1px 0 white, -1px 1px 0 white, 1px -1px 0 white, 0 -1px 0 white, 0 1px 0 white, 1px 0 0 white, 1px 0 0 white;
+}
+
+.js .flip-speech[data-speech]:after {
+  right: auto; left: -100%;
+}
+.js [data-speech]:before {
+  opacity: 0;
+  pointer-events: none;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: calc(-75% + 1rem);
+  top: 0;
+  width: 2.25rem; height: 4rem;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg" stroke-width="1" stroke="%23fff" fill="none"><path d="M119,0 C108.597796,85.3333333 69.2644628,128 1,128"></path></svg>');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right top;
+}
+.js .flip-speech[data-speech]:before {
+  right: auto; left: calc(-75% + 1rem);
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg" stroke-width="1" stroke="%23fff" fill="none"><path d="M2,0 C12.4022039,85.3333333 51.7355372,128 120,128"></path></svg>');
+  background-position: left top;
+}
+.js .bg-white [data-speech]:before, .js .bg-gray [data-speech]:before, .js .bg-yellow [data-speech]:before {
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg" stroke-width="1" stroke="%23000" fill="none"><path d="M119,0 C108.597796,85.3333333 69.2644628,128 1,128"></path></svg>');
+}
+.js .bg-white .flip-speech[data-speech]:before, .js .bg-gray .flip-speech[data-speech]:before, .js .bg-yellow .flip-speech[data-speech]:before {
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg" stroke-width="1" stroke="%23000" fill="none"><path d="M2,0 C12.4022039,85.3333333 51.7355372,128 120,128"></path></svg>');
+}
+.js [data-speech].speech:before, .js [data-speech].speech:after {
+  opacity: 1;
+}
+.js [data-speech] > span, .js span[data-speech] {
+  transition: transform 150ms;
+}
+.js [data-speech]:active > span, .js span[data-speech]:active {
+  opacity: .9;
+  transform: scale(.95);
+  transition: none;
+}
+@media(hover: hover) {
+  .js [data-speech]:hover > span, .js span[data-speech]:hover {
+    transform: scale(1.05);
+  }
+  .js [data-speech]:active > span, .js span[data-speech]:active {
+    transform: scale(1);
+  }
+}

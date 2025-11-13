@@ -1,0 +1,41 @@
+/* Colors */
+
+:root {
+  --black:          #000;
+  --white:          #fff;
+  --gray:           #888;
+  --gray-light:     #f8f8f8;
+  --blue:           #00f;
+  --yellow:         #ffb900;
+  --red:            #f00;
+  --green:          #00C640;
+}
+
+.white              { color: var(--white) }
+.black              { color: var(--black) }
+.gray               { color: var(--gray) }
+.blue               { color: var(--blue) }
+.yellow             { color: var(--yellow) }
+.red                { color: var(--red) }
+.green              { color: var(--green) }
+
+.bg-white           { background-color: var(--white) }
+.bg-black           { background-color: var(--black) }
+.bg-gray            { background-color: var(--gray-light) }
+.bg-blue            { background-color: var(--blue) }
+.bg-yellow          { background-color: var(--yellow) }
+.bg-red             { background-color: var(--red) }
+.bg-green           { background-color: var(--green) }
+
+.border-white       { border-color: var(--white) }
+.border-black       { border-color: var(--black) }
+.border-gray        { border-color: var(--gray-light) }
+.border-current     { border-color: currentColor }
+
+.fill-white         { fill: var(--white) }
+.fill-black         { fill: var(--black) }
+.fill-blue          { fill: var(--blue) }
+.fill-yellow        { fill: var(--yellow) }
+.fill-red           { fill: var(--red) }
+.fill-green         { fill: var(--green) }
+.fill-current       { fill: currentColor }

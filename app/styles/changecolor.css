@@ -1,0 +1,17 @@
+body.color-transition, main.color-transition, footer.color-transition {
+    transition: color 200ms, background-color 300ms;
+    transition-delay: 100ms;
+}
+
+/* if you want specific color transitions for certain elements, put them here */
+header.color-transition, body.color-transition header {
+    transition: color 150ms;
+    transition-delay: 100ms;
+}
+
+.js [data-listener="inviewChangeColor"] {
+    background-color: inherit;
+}
+.js [data-listener="inviewChangeColor"] {
+    color: inherit;
+}

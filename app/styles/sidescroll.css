@@ -1,0 +1,27 @@
+.sidescroll {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.sidescroll .inner {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+.sidescroll .h-scroller {
+  position: absolute;
+  height: 100%;
+}
+.sidescroll .h-inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+}
+.sidescroll .h-content {
+  flex-shrink: 0;
+}
