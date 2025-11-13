@@ -7,8 +7,9 @@ import { useRef, useMemo } from "react"
 
 function Blocks() {
   const ref = useRef<any>(null)
-  const positions = useMemo(() => {
-    let arr = []
+
+  const positions = useMemo<[number, number, number][]>(() => {
+    const arr: [number, number, number][] = []
     for (let i = 0; i < 12; i++) {
       arr.push([
         (Math.random() - 0.5) * 3,
